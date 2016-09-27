@@ -27,4 +27,17 @@ public class PopupViewer
 		
 		return response;
 	}
+	/**
+	 * Creates a popup to ask a yes/no/cancel type question.
+	 * @param question The question bing asked the user.
+	 * @return The constant values from JOptionPane for y/n/c.
+	 */
+	public int collectUserOption(String question)
+	{
+		int response = 0;
+		
+		response = JOptionPane.showConfirmDialog(null, question);
+		
+		return response;
+	}
 }
