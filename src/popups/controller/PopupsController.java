@@ -2,33 +2,48 @@ package popups.controller;
 
 import popups.view.PopupViewer;
 
+import popups.model.PopupsModel;
+import java.util.List;
+import java.util.ArrayList;
+
 public class PopupsController
 {
 	private PopupViewer display;
 	
+	private List<PopupsModel> popupsList;
+	
 	public PopupsController()
 	{
 		display = new PopupViewer();
+		popupsList = new ArrayList<PopupsModel>();
 	}
 	
 	public void start()
 	{
+		learnLists();
+	}
+	
+	private void testLoop()
+	{
 		String answer = "Sample";
-		while(answer != null && !answer.equals(""))
+		while(answer != null && !isDouble(answer))
 		{
 		
 		display.displayMessage("Whats up, Geeks!! :D");
 		
-		answer = display.collectResponse("What the heck is going on?!");
+		answer = display.collectResponse("You need to type in a double value!!");
 		display.displayMessage(answer + " is what you said");
 		}
 	}
+	
+	
 	/**
 	 * Checks is the supplied String can be parsed to a double value.
 	 * @param potentialValue The string to test.
 	 * @return Weather the value could be parsed; true if it can be parsed; false otherwise.
 	 */
-	private boolean isDouble(String potentialValue)
+	 
+	 private boolean isDouble(String potentialValue)
 	{
 		boolean isParseable = false;
 		
@@ -51,6 +66,7 @@ public class PopupsController
 	 * @returnWeather the number could be parsed; true if it can be parsed; false if otherwise.
 	 */
 	private boolean isInteger(String potentialNumber)
+
 	{
 		boolean isParseable = false;
 		
@@ -59,7 +75,7 @@ public class PopupsController
 			int test = Integer.parseInt(potentialNumber);
 			isParseable = true;
 		}
-		catch(NumberFormatException ontInt)
+		catch(NumberFormatException notInt)
 		{
 		display.displayMessage(notInt.getMessage());
 		display.displayMessage("Type in an integer next time!!!");	
@@ -68,5 +84,11 @@ public class PopupsController
 		return isParseable;
 	}
 	
-	
+	private void learnLists()
+	{
+		display.displayMessage(popupsList.size() + "is the size of the list.");
+		PopupsModel testPopups = new PopupsModel();
+		popupsList.add(testPopups);
+		display.displayMessage(popupsList.size() + " is the size of the list.");
+	}
 }
