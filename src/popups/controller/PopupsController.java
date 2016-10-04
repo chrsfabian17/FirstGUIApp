@@ -129,10 +129,14 @@ public class PopupsController
 	    for (PopupsModel currentPopupsModel : popupsList)
 	    {
 	    	display.displayMessage(currentPopupsModel.getWords()); 
-	    	
-	    	PopupsModel ultimatePopup = popupsList.get(5);
-	    	popupsList.get(3).setWords("Whoops I farted.");
-	    	
+	        
+	    	popupsList.get(5).setWords("Are you Ready?");
 	    }
+	    	for (int index = 0; index < 13; index++)
+	    	{
+	    		PopupsModel addUltimatePopup = new PopupsModel();
+	    		popupsList.add(addUltimatePopup);
+	    		display.displayMessage("YEAAAHHHHHH");
+	        }
 	}
 }
