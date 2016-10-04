@@ -80,7 +80,7 @@ public class PopupsController
 		display.displayMessage(notInt.getMessage());
 		display.displayMessage("Type in an integer next time!!!");	
 		}
-		
+		  
 		return isParseable;
 	}
 	
@@ -90,5 +90,49 @@ public class PopupsController
 		PopupsModel testPopups = new PopupsModel();
 		popupsList.add(testPopups);
 		display.displayMessage(popupsList.size() + " is the size of the list.");
+		
+		for (int index = 0; index < 5; index++)
+		{
+			PopupsModel addPopupsModel = new PopupsModel();
+			popupsList.add(addPopupsModel);
+			display.displayMessage(addPopupsModel.getWords());
+		}
+		
+		display.displayMessage(popupsList.size() + " is the size!");
+		
+		popupsList.get(3).setWords("Look I changed a value");
+	    PopupsModel temp = popupsList.get(4);
+	    temp.setWords("Stuff");
+	    
+	    for ( int index = 0; index < popupsList.size(); index++)
+	    {
+	    	display.displayMessage(popupsList.get(index).getWords());
+	    }
+	    popupsList.add(3, new PopupsModel());
+	    
+	    display.displayMessage("The Size is" + popupsList.size());
+	    
+	    popupsList.remove(0);//No longer have access to this object. 
+	    
+	    display.displayMessage("the size is" + popupsList.size());
+	    
+	    PopupsModel deletedPopups = popupsList.remove(3);
+	    display.displayMessage(deletedPopups.getWords() + "and the size is " + popupsList.size());
+	    
+	    popupsList.set(0,deletedPopups);
+	    
+	    for (int index = 0; index < popupsList.size(); index++)
+	    {
+	    	display.displayMessage(popupsList.get(index).getWords());
+	    }
+	    
+	    for (PopupsModel currentPopupsModel : popupsList)
+	    {
+	    	display.displayMessage(currentPopupsModel.getWords()); 
+	    	
+	    	PopupsModel ultimatePopup = popupsList.get(5);
+	    	popupsList.get(3).setWords("Whoops I farted.");
+	    	
+	    }
 	}
 }
